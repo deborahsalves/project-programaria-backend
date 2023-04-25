@@ -1,6 +1,7 @@
 const express = require('express'); // initialize express
 const router = express.Router(); 
 // const { v4: uuidv4 } = require('uuid'); // initialize uuid; NO NEED w mongoDB
+const cors = require('cors') // initialize cors
 
 const dbConnection = require('./database'); // importing module database.js
 dbConnection();
@@ -9,6 +10,7 @@ const Woman = require('./womanModel');
 
 const app = express(); 
 app.use(express.json()); // for json requests
+app.use(cors()); // to allow cors
 const port = 3333;
 
 // GET
